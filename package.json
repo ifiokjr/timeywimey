@@ -37,7 +37,7 @@
       }
     },
     "cucumber": {
-      "command": "babel-node bin/cucumber --compiler es6:babel-register",
+      "command": "babel-node --plugins add-module-exports bin/cucumber --compiler es6:babel-register",
       "env": {
         "DEBUG": "app:*",
         "NODE_ENV": "test"
@@ -139,6 +139,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^6.0.2",
+    "babel-plugin-add-module-exports": "0.1.2",
     "babel-register": "6.7.2",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
