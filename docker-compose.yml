@@ -6,7 +6,7 @@ services:
     build: .
     command: npm run cucumber:docker
     volumes:
-      -./:/src/app
+      - ./:/src/app
     links:
       - selenium_hub
 
@@ -17,5 +17,10 @@ services:
 
   selenium_chrome_node:
     image: selenium/node-chrome
-    depends_on:
+    links:
+      - selenium_hub
+
+  selenium_chrome_firefox:
+    image: selenium/node-firefox
+    links:
       - selenium_hub

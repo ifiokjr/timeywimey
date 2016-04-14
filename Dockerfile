@@ -1,14 +1,14 @@
-FROM node:5
+FROM node:5.10.1
 
-RUN apt-get update --qq && apt-get install -y build-essential
+RUN apt-get update && apt-get install -y build-essential
 RUN apt-get install -y ruby
 RUN gem install sass
 
-RUN mkdir /src
+RUN mkdir -p /src/app
 
-WORKDIR /src
-COPY ./package.json /src/package.json
+WORKDIR /src/app
+COPY ./package.json /src/app/package.json
 
-RUN npm i
+# RUN npm install
 
 EXPOSE 3000

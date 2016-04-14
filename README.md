@@ -12,7 +12,7 @@ It allows features to be described in plain English and tested through relevant 
   - [cucumber-js](https://github.com/cucumber/cucumber-js)
   - [webdriverio](http://webdriver.io/)
 
-Are these the best tools for the job? Probably not. But here's how to use them. 
+Are these the best tools for the job? Probably not. But here's how to use them.
 
 First make sure selenium is installed on your system.
 `npm run selenium:install`
@@ -39,8 +39,10 @@ Requirements:
 
 Ensure that docker>1.10 is installed on your computer. Instructions for [mac](https://docs.docker.com/engine/installation/mac/) and [windows](https://docs.docker.com/engine/installation/windows/)
 
-To run docker simply use the command
+To run docker simply use the command but only if you're on a mac with docker machine installed and active.
+
+**Please note this command currently only supports macs**
+
+There are also issues when working behind a firewall.
 
 `npm run cucumber:docker`
-
-Unfor

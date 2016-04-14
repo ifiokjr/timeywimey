@@ -12,7 +12,7 @@ export default function named () {
   });
 
   this.Then('I should see some results', async function () {
-    await this.browser.waitForExist('div.g', 5000)
+    await this.browser.waitForExist('div.g', 100000)
       .elements('div.g')
       .then((elements) => {
         return elements.value.should.have.length.above(0);

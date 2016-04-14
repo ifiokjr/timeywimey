@@ -7,19 +7,20 @@ const cli = Cli(process.argv);
 const runWithDocker: Boolean = process.env.NODE_ENV === 'test:docker';
 
 if (runWithDocker) {
-  // Get a list of available docker machines
-  runDockerMachineCommand('docker-machine ls')
+  // Assume docker-compose is available and start it up
+  runCommand('docker-compose up')
 
-  // Format the output and obtain the default configuration
+  // Log the output to the console
   .then((output) => {
     return formatLS(output)['default'];
   })
-  // Start the default machine if available otherwise throw an error
-  .then((machine) => {
-    if (!machine) {
-      throw new Error('Please set up a default machine -- We\'re working on fallbacks');
-    }
-  })
+
+  // // Start the default machine if available otherwise throw an error
+  // .then((machine) => {
+  //   if (!machine) {
+  //     throw new Error('Please set up a default machine -- We\'re working on fallbacks');
+  //   }
+  // })
   // Run docker on the default machine
 
   // Check for any errors and log them to the console.
@@ -46,9 +47,9 @@ if (runWithDocker) {
  * Run a command and make the raw result available
  */
 
-function runDockerMachineCommand (command: String): Promise {
+function runCommand (command: String): Promise {
   return new Promise((resolve, reject) => {
-    exec(command, (error, stdout, stderr) => {
+    const cmd = exec(command, (error, stdout, stderr) => {
       if (error) {
         reject(stderr);
         return;
@@ -56,15 +57,22 @@ function runDockerMachineCommand (command: String): Promise {
 
       resolve(stdout);
     });
+
+    cmd.stdout.on('data', (data) => {
+      console.log(`stdout: ${data}`);
+    });
+
+    cmd.stderr.on('data', (data) => {
+      console.log(`stderr: ${data}`);
+    });
   });
 }
 
 /**
  * Return an object containing all the available machines,
  * their status, driver and url
- * @param  {[type]} input: String        [description]
- * @return {[type]}        [description]
  */
 function formatLS (input: String): object {
-
+  console.log(input);
+  return true;
 }

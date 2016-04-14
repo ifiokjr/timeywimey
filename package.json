@@ -45,10 +45,9 @@
       }
     },
     "cucumber:docker": {
-      "command": "babel-node --plugins add-module-exports bin/cucumber --compiler es6:babel-register",
+      "command": "npm run cucumber",
       "env": {
-        "DEBUG": "app:*",
-        "NODE_ENV": "test:docker"
+        "SELENIUM_HOST": "selenium_hub"
       }
     },
     "dev": {
@@ -142,7 +141,7 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webdriverio": "4.0.5",
-    "webpack": "^1.12.14",
+    "webpack": "1.12.15",
     "yargs": "^4.4.0"
   },
   "devDependencies": {
@@ -164,7 +163,7 @@
     "eslint-plugin-promise": "^1.1.0",
     "eslint-plugin-react": "^4.3.0",
     "eslint-plugin-standard": "^1.3.2",
-    "flow-bin": "0.22.1",
+    "flow-bin": "0.23.0",
     "flow-interfaces": "^0.6.0",
     "isparta-loader": "^2.0.0",
     "karma": "^0.13.22",
