@@ -1,4 +1,3 @@
-// import webdriverio from 'webdriverio'; //TODO FIX
 const webdriverio = require('webdriverio'); // FIXME
 import 'colors';
 
@@ -17,6 +16,6 @@ class World {
   }
 }
 
-export default function named () {
+export default () => {
   this.World = World;
-}
+};

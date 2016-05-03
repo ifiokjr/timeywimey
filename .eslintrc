@@ -15,10 +15,11 @@
     "__DEV__"      : false,
     "__PROD__"     : false,
     "__DEBUG__"    : false,
-    "__DEBUG_NEW_WINDOW__" : false,
+    "__COVERAGE__" : false,
     "__BASENAME__" : false
   },
   "rules": {
+    "no-multiple-empty-lines": ["error", {"max": 2, "maxEOF": 1, "maxBOF": 0}],
     "semi" : [2, "always"],
     "max-len": [2, 120, 2],
     "flow-vars/define-flow-type": 1,
